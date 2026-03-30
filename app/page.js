@@ -1,5 +1,5 @@
 "use client";
-
+const API_URL = process.env.NEXT_PUBLIC_API_URL;
 import { useState } from "react";
 
 export default function Home() {
@@ -12,7 +12,7 @@ export default function Home() {
   const handleIngest = async () => {
     setStatus("Loading repo...");
 
-    await fetch("http://127.0.0.1:8000/api/ingest", {
+    await fetch(`${API_URL}/api/ingest`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -27,7 +27,7 @@ export default function Home() {
     setLoading(true);
     setAnswer("");
 
-    const res = await fetch("http://127.0.0.1:8000/api/chat", {
+    const res = await fetch(`${API_URL}/api/chat`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
