@@ -3,6 +3,7 @@ const API_URL = process.env.NEXT_PUBLIC_API_URL;
 import { useState } from "react";
 
 export default function Home() {
+  console.log("API URL:", API_URL);
   const [repoUrl, setRepoUrl] = useState("");
   const [query, setQuery] = useState("");
   const [answer, setAnswer] = useState("");
